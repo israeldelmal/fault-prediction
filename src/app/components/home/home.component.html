@@ -1,0 +1,85 @@
+<form>
+    <mat-vertical-stepper linear  #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <div [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Cerveza <span *ngIf="first['beer'].value != ''">{{ '- ' + first['beer'].value }}</span></ng-template>
+                <mat-form-field class="max-width top">
+                    <mat-label>Seleccionar tipo de cerveza</mat-label>
+                    <mat-select formControlName="beer" required>
+                        <mat-option *ngFor="let beer of beersType" value="{{ beer.id }}">{{ beer.type }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div>
+                    <button mat-flat-button matStepperNext color="primary">Siguiente</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <div [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Cocimientos <span *ngIf="second['machine'].value != ''">{{ '- ' + second['machine'].value }}</span></ng-template>
+                <mat-form-field class="max-width top">
+                    <mat-label>Seleccionar máquina</mat-label>
+                    <mat-select formControlName="machine" required>
+                        <mat-option value="1-Machine-1">Macerador #1 (1%)</mat-option>
+                        <mat-option value="1-Machine-2">Macerador #2 (2%)</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div>
+                    <button mat-flat-button matStepperPrevious color="primary" class="right">Atrás</button>
+                    <button mat-flat-button matStepperNext color="primary">Siguiente</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup">
+            <div [formGroup]="thirdFormGroup">
+                <ng-template matStepLabel>Cantidad <span *ngIf="third['hl'].value != ''">{{ '- ' + third['hl'].value }}</span></ng-template>
+                <mat-form-field class="max-width top">
+                    <mat-label>Escribir cantidad de hectolitros</mat-label>
+                    <mat-select formControlName="hl" required>
+                        <mat-option value="1-HL-1">Opción #1</mat-option>
+                        <mat-option value="1-HL-2">Opción #2</mat-option>
+                        <mat-option value="1-HL-3">Opción #3</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="top">
+                    <button mat-flat-button matStepperPrevious color="primary" class="right">Atrás</button>
+                    <button mat-flat-button matStepperNext color="primary">Siguiente</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="fourthFormGroup">
+            <div [formGroup]="fourthFormGroup">
+                <ng-template matStepLabel>Fecha <span *ngIf="fourth['date'].value != ''">{{ '- ' + fourth['date'].value }}</span></ng-template>
+                <mat-form-field class="max-width top">
+                    <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Seleccionar fecha">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                </mat-form-field>
+                <div class="top">
+                    <button mat-flat-button matStepperPrevious color="primary" class="right">Atrás</button>
+                    <button mat-flat-button matStepperNext color="primary">Siguiente</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="fifthFormGroup">
+            <div [formGroup]="fifthFormGroup">
+                <ng-template matStepLabel>Hora <span *ngIf="fifth['time'].value != ''">{{ '- ' + fifth['time'].value }}</span></ng-template>
+                <mat-form-field class="max-width top">
+                    <input type="time" atp-time-picker formControlName="time" matInput placeholder="Seleccionar hora">
+                </mat-form-field>
+                <div>
+                    <button mat-flat-button matStepperPrevious color="primary" class="right">Atrás</button>
+                    <button mat-flat-button matStepperNext color="primary">Siguiente</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Simular</ng-template>
+            <div class="top">
+                <button mat-flat-button color="primary" color="primary" class="right"
+                    (click)="stepper.reset() ; resetForm()">Reiniciar</button>
+                <button type="submit" mat-flat-button color="primary" color="primary">Simular <i class="fas fa-check"></i></button>
+            </div>
+        </mat-step>
+    </mat-vertical-stepper>
+</form>

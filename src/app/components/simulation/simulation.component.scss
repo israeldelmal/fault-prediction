@@ -1,0 +1,41 @@
+@import '../../../assets/scss/var';
+
+span {
+    display: inline-block;
+}
+
+.calendar-container {
+    width: 100%;
+    padding: 10px;
+}
+
+.day {
+    background-color: #e5f3ec;
+    color: black;
+    box-shadow: none;
+    border-radius: 0px;
+    border-bottom: 1px solid #cce7d9;
+    &.fail {
+        background-color: #025128;
+        * {
+            color: white;
+        }
+        &:not(.mat-expanded):not([aria-disabled='true']) .mat-expansion-panel-header:hover {
+            background: #025128;
+        }
+    }
+    &:not(.mat-expanded):not([aria-disabled='true']) .mat-expansion-panel-header:hover {
+        background: #e5f3ec;
+    }
+    &:last-of-type {
+        border-bottom: none;
+    }
+}
+
+time {
+    display: block;
+    width: 100%;
+    font-size: $fs-big;
+    font-weight: 700;
+    margin-bottom: 10px;
+}

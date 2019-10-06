@@ -1,0 +1,1 @@
+export const endPonit = 'http://173.82.115.15/api/';

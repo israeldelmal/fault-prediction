@@ -1,0 +1,35 @@
+@import 'assets/scss/var';
+
+* {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 300;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    background-color: white;
+}
+
+.max-width {
+    width: 100%;
+}
+
+#time-picker-wrapper.light #time-picker .time-picker-clock > button.active {
+    background: $main !important;
+}
+
+#time-picker-wrapper.light #time-picker .time-picker-clock .time-picker-clock-arrow {
+    background: $main !important;
+}
+
+#time-picker-wrapper.light #time-picker .time-picker-clock .time-picker-clock-origin {
+    background: $main !important;
+}
+
+#time-picker-wrapper.light #time-picker .time-picker-clock .time-picker-clock-arrow span {
+    background: $main !important;
+}

@@ -1,0 +1,13 @@
+<div class="calendar-container">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let day of daysData" class="day" [ngClass]="{'fail': day.fail == true}">
+            <mat-expansion-panel-header>
+                <mat-panel-title>{{ day.machine }}</mat-panel-title>
+                <mat-panel-description>{{ day.date }}</mat-panel-description>
+            </mat-expansion-panel-header>
+            <div>
+                Contenido
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
