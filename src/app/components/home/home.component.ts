@@ -4,6 +4,8 @@ import { ServiceBeersType } from 'src/app/services/beers.services';
 import { IBeerType } from 'src/app/models/beertype.model';
 import { ServiceCooks } from 'src/app/services/cooks.service';
 import { ICooks } from 'src/app/models/cooks.model';
+import { SimulationService } from 'src/app/services/simulation.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -11,6 +13,7 @@ import { ICooks } from 'src/app/models/cooks.model';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
     // API
     beersType: IBeerType[];
     cooks: ICooks[];
@@ -22,10 +25,13 @@ export class HomeComponent implements OnInit {
     fourthFormGroup: FormGroup;
     fifthFormGroup: FormGroup;
 
+    simulationForm: FormGroup;
+
     constructor(
         private _formBuilder: FormBuilder,
         private _beersType: ServiceBeersType,
         private _cooks: ServiceCooks,
+        private router: Router
     ) { }
 
     // Funciones para extraer los controles de un Form
@@ -79,5 +85,9 @@ export class HomeComponent implements OnInit {
         this.third['hl'].setValue('');
         this.fourth['date'].setValue('');
         this.fifth['time'].setValue('');
+    }
+
+    onSubmit() {
+        this.router.navigate(['/simulacion']);
     }
 }

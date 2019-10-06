@@ -7,7 +7,7 @@ import { ICooks } from '../models/cooks.model';
     providedIn: 'root'
 })
 export class ServiceCooks {
-    api = endPonit + 'machine/cocimientos';
+    api = endPonit + 'machine';
 
     constructor(
         private http: HttpClient

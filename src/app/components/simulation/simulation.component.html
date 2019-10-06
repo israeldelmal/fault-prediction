@@ -1,12 +1,27 @@
 <div class="calendar-container">
     <mat-accordion>
-        <mat-expansion-panel *ngFor="let day of daysData" class="day" [ngClass]="{'fail': day.fail == true}">
+        <mat-expansion-panel *ngFor="let day of daysData" class="day" [ngClass]="{'fail': day.faultDate == true}">
             <mat-expansion-panel-header>
-                <mat-panel-title>{{ day.machine }}</mat-panel-title>
-                <mat-panel-description>{{ day.date }}</mat-panel-description>
+                <mat-panel-title>{{ day.initialDate | date:'dd-MM-yyyy HH:mm' }} - {{ day.finishDate | date:'dd-MM-yyyy HH:mm' }}</mat-panel-title>
             </mat-expansion-panel-header>
             <div>
-                Contenido
+                <span class="fault-day-text" *ngIf="day.faultDate == true">Máquina con posible fallo</span>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Máquina</th>
+                            <th>% Falla</th>
+                            <th>Duración</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ day.machine }}</td>
+                            <td>{{day.fault}}%</td>
+                            <td>{{day.hours}} hrs</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </mat-expansion-panel>
     </mat-accordion>

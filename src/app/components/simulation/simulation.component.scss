@@ -5,8 +5,10 @@ span {
 }
 
 .calendar-container {
-    width: 100%;
-    padding: 10px;
+    width: 960px;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .day {
@@ -38,4 +40,42 @@ time {
     font-size: $fs-big;
     font-weight: 700;
     margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 14px;
+    thead {
+        tr {
+            th {
+                font-weight: 700;
+                padding: 5px;
+            }
+        }
+    }
+    tbody {
+        tr {
+            border-top: 1px solid #b3dbc6;
+            td {
+                padding: 5px;
+            }
+        }
+    }
+}
+
+.fault-day-text {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+    .calendar-container {
+        width: 100%;
+        padding: 10px;
+    }
 }

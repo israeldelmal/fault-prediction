@@ -7,7 +7,7 @@ import { IBeerType } from '../models/beertype.model';
     providedIn: 'root'
 })
 export class ServiceBeersType {
-    api = endPonit + 'beertype';
+    api = endPonit + 'beer-type';
 
     constructor(
         private http: HttpClient

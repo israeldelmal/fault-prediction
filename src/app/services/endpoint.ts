@@ -1,1 +1,1 @@
-export const endPonit = 'http://173.82.115.15/api/';
+export const endPonit = 'https://slpa94i9w1.execute-api.us-west-2.amazonaws.com/Development/';
