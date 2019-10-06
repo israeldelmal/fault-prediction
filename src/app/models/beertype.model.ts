@@ -1,4 +1,4 @@
 export interface IBeerType {
-    id: number,
+    id: number
     type: string
 }

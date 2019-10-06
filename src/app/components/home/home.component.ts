@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServiceBeersType } from 'src/app/services/beers.services';
 import { IBeerType } from 'src/app/models/beertype.model';
+import { ServiceCooks } from 'src/app/services/cooks.service';
+import { ICooks } from 'src/app/models/cooks.model';
 
 @Component({
     selector: 'app-home',
@@ -11,6 +13,7 @@ import { IBeerType } from 'src/app/models/beertype.model';
 export class HomeComponent implements OnInit {
     // API
     beersType: IBeerType[];
+    cooks: ICooks[];
 
     // Formularios
     firstFormGroup: FormGroup;
@@ -21,7 +24,8 @@ export class HomeComponent implements OnInit {
 
     constructor(
         private _formBuilder: FormBuilder,
-        private _beersType: ServiceBeersType
+        private _beersType: ServiceBeersType,
+        private _cooks: ServiceCooks,
     ) { }
 
     // Funciones para extraer los controles de un Form
@@ -62,8 +66,11 @@ export class HomeComponent implements OnInit {
             time: ['', Validators.required]
         });
         // API
-        return this._beersType.getBeersType()
+        this._beersType.getBeersType()
             .subscribe(data => this.beersType = data);
+
+        this._cooks.getCooks()
+            .subscribe(data => this.cooks = data);
     }
 
     resetForm() {

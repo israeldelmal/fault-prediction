@@ -1,19 +1,19 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { endPonit } from './endpoint';
-import { IBeerType } from '../models/beertype.model';
+import { ICooks } from '../models/cooks.model';
 
 @Injectable({
     providedIn: 'root'
 })
-export class ServiceBeersType {
-    api = endPonit + 'beertype';
+export class ServiceCooks {
+    api = endPonit + 'machine/cocimientos';
 
     constructor(
         private http: HttpClient
     ) {}
 
-    getBeersType() {
-        return this.http.get<IBeerType[]>(this.api);
+    getCooks() {
+        return this.http.get<ICooks[]>(this.api);
     }
 }

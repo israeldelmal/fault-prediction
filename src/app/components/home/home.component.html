@@ -20,8 +20,7 @@
                 <mat-form-field class="max-width top">
                     <mat-label>Seleccionar máquina</mat-label>
                     <mat-select formControlName="machine" required>
-                        <mat-option value="1-Machine-1">Macerador #1 (1%)</mat-option>
-                        <mat-option value="1-Machine-2">Macerador #2 (2%)</mat-option>
+                        <mat-option *ngFor="let cook of cooks" value="{{ cook.id }}">{{ cook.name }}</mat-option>
                     </mat-select>
                 </mat-form-field>
                 <div>
@@ -49,7 +48,7 @@
         </mat-step>
         <mat-step [stepControl]="fourthFormGroup">
             <div [formGroup]="fourthFormGroup">
-                <ng-template matStepLabel>Fecha <span *ngIf="fourth['date'].value != ''">{{ '- ' + fourth['date'].value }}</span></ng-template>
+                <ng-template matStepLabel>Fecha <span *ngIf="fourth['date'].value != ''">{{ '- ' + fourth['date'].value | date: 'dd/MM/yyyy' }}</span></ng-template>
                 <mat-form-field class="max-width top">
                     <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Seleccionar fecha">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
